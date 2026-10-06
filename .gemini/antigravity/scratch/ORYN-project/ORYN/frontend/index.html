@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORYN | Discover What Feels Made for You</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar glass">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="logo" onclick="app.navigate('landing')">ORYN</a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link" data-page="dashboard" onclick="app.navigate('dashboard')">Home</a>
+                    <a href="#" class="nav-link" data-page="discover" onclick="app.navigate('discover')">Discover</a>
+                    <a href="#" class="nav-link" data-page="trending" onclick="app.navigate('discover')">Trending</a>
+                    <a href="#" class="nav-link" data-page="analytics" onclick="app.navigate('analytics')">Analytics</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="icon-btn search-btn" onclick="app.openSearch()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="btn btn-primary auth-btn-login" onclick="app.navigate('login')">Sign In</button>
+                <div class="user-menu hidden" id="user-menu">
+                    <button class="avatar" onclick="app.navigate('profile')">U</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Bottom -->
+    <nav class="mobile-nav">
+        <a href="#" onclick="app.navigate('dashboard')" class="mobile-nav-item active"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a>
+        <a href="#" onclick="app.navigate('discover')" class="mobile-nav-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></a>
+        <a href="#" onclick="app.openSearch()" class="mobile-nav-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></a>
+        <a href="#" onclick="app.navigate('profile')" class="mobile-nav-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
+    </nav>
+
+    <!-- App Container (Pages) -->
+    <main id="app-container">
+        
+        <!-- LANDING PAGE -->
+        <section id="page-landing" class="page active">
+            <div class="hero">
+                <div class="hero-bg-orbs">
+                    <div class="orb orb-1"></div>
+                    <div class="orb orb-2"></div>
+                </div>
+                <div class="hero-content">
+                    <h1 class="hero-title gradient-text">ORYN</h1>
+                    <h2 class="hero-subtitle">Discover What Feels Made for You.</h2>
+                    <p class="hero-desc">An adaptive AI recommendation engine that learns your taste and discovers what you'll love next.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-lg" onclick="app.navigate('signup')">Start Discovering</button>
+                        <button class="btn btn-secondary btn-lg" onclick="app.navigate('discover')">Explore Movies</button>
+                    </div>
+                </div>
+            </div>
+            <div class="features-section">
+                <div class="container">
+                    <div class="feature-cards">
+                        <div class="card feature-card">
+                            <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+                            <h3>AI-Powered Discovery</h3>
+                            <p>State-of-the-art hybrid models analyze thousands of factors to find your next favorite.</p>
+                        </div>
+                        <div class="card feature-card">
+                            <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                            <h3>Personalized Just For You</h3>
+                            <p>Adaptive profiles that evolve as your taste changes over time.</p>
+                        </div>
+                        <div class="card feature-card">
+                            <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div>
+                            <h3>Explainable Recommendations</h3>
+                            <p>Understand why ORYN suggested a movie with transparent match reasons.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container text-center">
+                    <p class="gradient-text">ORYN &copy; 2026. Premium Discovery Engine.</p>
+                </div>
+            </footer>
+        </section>
+
+        <!-- LOGIN PAGE -->
+        <section id="page-login" class="page">
+            <div class="auth-container">
+                <div class="card auth-card glass">
+                    <h2>Welcome back to ORYN.</h2>
+                    <form id="login-form" onsubmit="event.preventDefault(); app.login();">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="login-email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Continue</button>
+                        <button type="button" class="btn btn-secondary btn-block mt-3" onclick="app.fillDemoCredentials()">Demo Mode</button>
+                    </form>
+                    <p class="auth-footer">Don't have an account? <a href="#" onclick="app.navigate('signup')">Sign up</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIGNUP PAGE -->
+        <section id="page-signup" class="page">
+            <div class="auth-container">
+                <div class="card auth-card glass">
+                    <h2>Let's discover your taste.</h2>
+                    <form id="signup-form" onsubmit="event.preventDefault(); app.startOnboarding();">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="signup-name" placeholder="Alex" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="signup-email" placeholder="alex@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="signup-password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    </form>
+                    <p class="auth-footer">Already have an account? <a href="#" onclick="app.navigate('login')">Sign in</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ONBOARDING -->
+        <section id="page-onboarding" class="page">
+            <div class="onboarding-container container">
+                <div class="onboarding-progress">
+                    <span class="progress-text">01 / 03</span>
+                    <div class="progress-bar"><div class="progress-fill" id="onboarding-progress"></div></div>
+                </div>
+                
+                <!-- Step 1 -->
+                <div id="onboarding-step-1" class="onboarding-step active">
+                    <h2>What kind of movies do you love?</h2>
+                    <p class="text-muted">Select at least 3 genres.</p>
+                    <div class="genre-grid" id="onboarding-genres">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="onboarding-step-2" class="onboarding-step">
+                    <h2>Tell us some movies you love.</h2>
+                    <p class="text-muted">Select a few favorites to jumpstart your profile.</p>
+                    <div class="movie-grid" id="onboarding-movies">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="onboarding-step-3" class="onboarding-step">
+                    <h2>How much did you enjoy these?</h2>
+                    <p class="text-muted">Rate the movies you selected (optional).</p>
+                    <div class="rating-list" id="onboarding-ratings">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <div class="onboarding-actions">
+                    <button class="btn btn-secondary" id="onboarding-back" onclick="app.onboardingBack()" style="visibility: hidden;">Back</button>
+                    <button class="btn btn-primary" id="onboarding-next" onclick="app.onboardingNext()">Continue</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOADING SCREEN -->
+        <section id="page-loading" class="page">
+            <div class="loading-container">
+                <div class="loading-logo gradient-text">ORYN</div>
+                <div class="loading-orbs">
+                    <span></span><span></span><span></span>
+                </div>
+                <h2 id="loading-text">Learning your taste...</h2>
+            </div>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section id="page-dashboard" class="page">
+            <div class="dashboard-header container">
+                <div class="greeting">
+                    <h1 id="dash-greeting">Good evening, User.</h1>
+                    <p class="text-muted">Here's what ORYN found for you.</p>
+                </div>
+            </div>
+
+            <!-- Featured Hero -->
+            <div class="featured-hero container" id="dash-featured">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="dashboard-sections container" id="dash-sections">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- DISCOVER -->
+        <section id="page-discover" class="page">
+            <div class="container">
+                <div class="discover-header">
+                    <h2>Discover</h2>
+                    <div class="filter-bar">
+                        <button class="filter-pill active">Trending</button>
+                        <button class="filter-pill">Popular</button>
+                        <button class="filter-pill">Hidden Gems</button>
+                        <button class="filter-pill">Highly Rated</button>
+                    </div>
+                    <div class="genre-filters" id="discover-genres">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="movie-grid discover-grid" id="discover-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- MOVIE DETAIL -->
+        <section id="page-movie" class="page">
+            <div id="movie-detail-container">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- PROFILE -->
+        <section id="page-profile" class="page">
+            <div class="container profile-container">
+                <div class="profile-header card">
+                    <div class="profile-avatar gradient-bg" id="profile-avatar">U</div>
+                    <div class="profile-info">
+                        <h2 id="profile-name">User</h2>
+                        <p class="text-muted" id="profile-email">user@example.com</p>
+                        <div class="profile-stats">
+                            <div class="stat"><span class="stat-val">42</span> Movies</div>
+                            <div class="stat"><span class="stat-val">15</span> Liked</div>
+                            <div class="stat"><span class="stat-val">28</span> Rated</div>
+                        </div>
+                        <button class="btn btn-secondary mt-3" onclick="app.logout()">Log Out</button>
+                    </div>
+                </div>
+                <div class="profile-tabs mt-5">
+                    <button class="tab active">My List</button>
+                    <button class="tab">Recently Watched</button>
+                    <button class="tab">Liked</button>
+                </div>
+                <div class="movie-grid mt-4" id="profile-movies">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ANALYTICS -->
+        <section id="page-analytics" class="page">
+            <div class="container analytics-container">
+                <div class="analytics-header">
+                    <h2>ORYN Analytics</h2>
+                    <p class="text-muted">Real ML model evaluation metrics</p>
+                </div>
+                <div class="metric-cards" id="analytics-metrics">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="card chart-card mt-5">
+                    <h3>Model Comparison</h3>
+                    <div class="chart-container" id="analytics-chart">
+                        <!-- CSS Chart Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SEARCH MODAL -->
+    <div id="search-modal" class="search-overlay">
+        <button class="close-search" onclick="app.closeSearch()">&times;</button>
+        <div class="search-container container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search movies, genres, actors..." oninput="app.handleSearch()">
+            <div class="search-filters mt-4">
+                <span class="filter-label">Filter:</span>
+                <button class="filter-pill">Action</button>
+                <button class="filter-pill">2023+</button>
+            </div>
+            <div class="search-results mt-5 movie-grid" id="search-results">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">Message</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
